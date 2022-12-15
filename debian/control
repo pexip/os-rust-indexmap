@@ -11,9 +11,10 @@ Build-Depends: debhelper (>= 12),
 Maintainer: Debian Rust Maintainers <pkg-rust-maintainers@alioth-lists.debian.net>
 Uploaders:
  Wolfgang Silbermayr <wolfgang@silbermayr.at>
-Standards-Version: 4.5.1
+Standards-Version: 4.6.1
 Vcs-Git: https://salsa.debian.org/rust-team/debcargo-conf.git [src/indexmap]
 Vcs-Browser: https://salsa.debian.org/rust-team/debcargo-conf/tree/master/src/indexmap
+X-Cargo-Crate: indexmap
 Rules-Requires-Root: no
 
 Package: librust-indexmap-dev
@@ -21,67 +22,52 @@ Architecture: any
 Multi-Arch: same
 Depends:
  ${misc:Depends},
+ librust-arbitrary-1-dev,
  librust-autocfg-1+default-dev,
- librust-hashbrown-0.12+raw-dev
-Suggests:
- librust-indexmap+rayon-dev (= ${binary:Version}),
- librust-indexmap+serde-dev (= ${binary:Version})
+ librust-hashbrown-0.12+raw-dev,
+ librust-quickcheck-1-dev,
+ librust-rayon-1+default-dev (>= 1.4.1-~~),
+ librust-serde-1-dev
 Provides:
+ librust-indexmap+arbitrary-dev (= ${binary:Version}),
  librust-indexmap+default-dev (= ${binary:Version}),
+ librust-indexmap+quickcheck-dev (= ${binary:Version}),
+ librust-indexmap+rayon-dev (= ${binary:Version}),
+ librust-indexmap+serde-dev (= ${binary:Version}),
+ librust-indexmap+serde-1-dev (= ${binary:Version}),
  librust-indexmap+std-dev (= ${binary:Version}),
  librust-indexmap+test-debug-dev (= ${binary:Version}),
  librust-indexmap+test-low-transition-point-dev (= ${binary:Version}),
  librust-indexmap-1-dev (= ${binary:Version}),
+ librust-indexmap-1+arbitrary-dev (= ${binary:Version}),
  librust-indexmap-1+default-dev (= ${binary:Version}),
+ librust-indexmap-1+quickcheck-dev (= ${binary:Version}),
+ librust-indexmap-1+rayon-dev (= ${binary:Version}),
+ librust-indexmap-1+serde-dev (= ${binary:Version}),
+ librust-indexmap-1+serde-1-dev (= ${binary:Version}),
  librust-indexmap-1+std-dev (= ${binary:Version}),
  librust-indexmap-1+test-debug-dev (= ${binary:Version}),
  librust-indexmap-1+test-low-transition-point-dev (= ${binary:Version}),
  librust-indexmap-1.9-dev (= ${binary:Version}),
+ librust-indexmap-1.9+arbitrary-dev (= ${binary:Version}),
  librust-indexmap-1.9+default-dev (= ${binary:Version}),
+ librust-indexmap-1.9+quickcheck-dev (= ${binary:Version}),
+ librust-indexmap-1.9+rayon-dev (= ${binary:Version}),
+ librust-indexmap-1.9+serde-dev (= ${binary:Version}),
+ librust-indexmap-1.9+serde-1-dev (= ${binary:Version}),
  librust-indexmap-1.9+std-dev (= ${binary:Version}),
  librust-indexmap-1.9+test-debug-dev (= ${binary:Version}),
  librust-indexmap-1.9+test-low-transition-point-dev (= ${binary:Version}),
- librust-indexmap-1.9.1-dev (= ${binary:Version}),
- librust-indexmap-1.9.1+default-dev (= ${binary:Version}),
- librust-indexmap-1.9.1+std-dev (= ${binary:Version}),
- librust-indexmap-1.9.1+test-debug-dev (= ${binary:Version}),
- librust-indexmap-1.9.1+test-low-transition-point-dev (= ${binary:Version})
+ librust-indexmap-1.9.2-dev (= ${binary:Version}),
+ librust-indexmap-1.9.2+arbitrary-dev (= ${binary:Version}),
+ librust-indexmap-1.9.2+default-dev (= ${binary:Version}),
+ librust-indexmap-1.9.2+quickcheck-dev (= ${binary:Version}),
+ librust-indexmap-1.9.2+rayon-dev (= ${binary:Version}),
+ librust-indexmap-1.9.2+serde-dev (= ${binary:Version}),
+ librust-indexmap-1.9.2+serde-1-dev (= ${binary:Version}),
+ librust-indexmap-1.9.2+std-dev (= ${binary:Version}),
+ librust-indexmap-1.9.2+test-debug-dev (= ${binary:Version}),
+ librust-indexmap-1.9.2+test-low-transition-point-dev (= ${binary:Version})
 Description: Hash table with consistent order and fast iteration - Rust source code
  This package contains the source for the Rust indexmap crate, packaged by
  debcargo for use with cargo and dh-cargo.
-
-Package: librust-indexmap+rayon-dev
-Architecture: any
-Multi-Arch: same
-Depends:
- ${misc:Depends},
- librust-indexmap-dev (= ${binary:Version}),
- librust-rayon-1+default-dev (>= 1.4.1-~~)
-Provides:
- librust-indexmap-1+rayon-dev (= ${binary:Version}),
- librust-indexmap-1.9+rayon-dev (= ${binary:Version}),
- librust-indexmap-1.9.1+rayon-dev (= ${binary:Version})
-Description: Hash table with consistent order and fast iteration - feature "rayon"
- This metapackage enables feature "rayon" for the Rust indexmap crate, by
- pulling in any additional dependencies needed by that feature.
-
-Package: librust-indexmap+serde-dev
-Architecture: any
-Multi-Arch: same
-Depends:
- ${misc:Depends},
- librust-indexmap-dev (= ${binary:Version}),
- librust-serde-1-dev
-Provides:
- librust-indexmap+serde-1-dev (= ${binary:Version}),
- librust-indexmap-1+serde-dev (= ${binary:Version}),
- librust-indexmap-1+serde-1-dev (= ${binary:Version}),
- librust-indexmap-1.9+serde-dev (= ${binary:Version}),
- librust-indexmap-1.9+serde-1-dev (= ${binary:Version}),
- librust-indexmap-1.9.1+serde-dev (= ${binary:Version}),
- librust-indexmap-1.9.1+serde-1-dev (= ${binary:Version})
-Description: Hash table with consistent order and fast iteration - feature "serde" and 1 more
- This metapackage enables feature "serde" for the Rust indexmap crate, by
- pulling in any additional dependencies needed by that feature.
- .
- Additionally, this package also provides the "serde-1" feature.

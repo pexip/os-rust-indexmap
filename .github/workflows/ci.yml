@@ -16,14 +16,18 @@ jobs:
     strategy:
       matrix:
         include:
-          - rust: 1.56.1 # MSRV
+          - rust: 1.56.0 # MSRV
             features:
           - rust: stable
-            features: serde
+            features: arbitrary
+          - rust: stable
+            features: quickcheck
           - rust: stable
             features: rayon
           - rust: stable
             features: rustc-rayon
+          - rust: stable
+            features: serde
           - rust: stable
             features: std
           - rust: beta
@@ -59,7 +63,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - rust: 1.56.1
+          - rust: 1.56.0
             target: thumbv6m-none-eabi
           - rust: stable
             target: thumbv6m-none-eabi
