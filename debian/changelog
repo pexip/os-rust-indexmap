@@ -1,3 +1,9 @@
+rust-indexmap (1.9.2-1pexip1) pexip; urgency=medium
+
+  * New upstream release
+
+ -- Huw Jones <huw@pexip.com>  Thu, 16 Mar 2023 18:10:00 +0000
+
 rust-indexmap (1.9.2-1) unstable; urgency=medium
 
   * Team upload.
